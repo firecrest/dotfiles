@@ -1,0 +1,8 @@
+[user]
+	name = Firecrest
+	email = firecrest@users.noreply.github.com
+[credential]
+	helper = cache
+[core]
+	editor = emacs
+	excludesfile = /home/mark/.gitignore_global

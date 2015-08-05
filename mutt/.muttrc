@@ -1,0 +1,86 @@
+##General settings
+
+# Store message headers locally to speed things up.
+set header_cache = ~/.mutt/hcache
+# Store messages locally to speed things up, like searching message bodies.
+# Can be the same folder as header_cache.
+# This will cost important disk usage according to your e-mail amount.
+set message_cachedir = "~/.mutt/msgcache"
+#Check all subscribed IMAP folders  (no need to set 'mailboxes' variable)
+set imap_check_subscribed
+#This might be required for spaces in IMAP folder names
+#bind editor <space> noop
+# Allow Mutt to open new imap connection automatically.
+unset imap_passive
+# Keep IMAP connection alive by polling intermittently (time in seconds). Note: Found that this has to be <=100 for gmail IMAP not to freeze mutt.
+set imap_keepalive = 60
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+#Threaded email view
+set sort=threads
+
+#Editor (use emacsclient to connect to daemon where possible)
+set editor=emacsclient
+  
+# SMTP settings
+set use_from = yes
+
+# UTF-8 character set
+set send_charset="us-ascii:utf-8"
+# Use elinks for HTML messages but default to text where possible
+set mailcap_path 	= ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+#Key Bindings
+#Switch folders correctly when using multiple accounts
+macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+
+#Colours
+source '~/.mutt/colors.zenburn'
+
+# Split pane view
+set pager_index_lines = 15
+
+#Customise the Index format
+set date_format="%d-%m-%y %T"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+
+#For GPG password file
+source "gpg2 -dq $HOME/.mutt/.my_pwds.gpg |"
+# Enable GPG mail encryption/signing
+source '~/.mutt/gpg.rc'
+# PGP Settings
+set pgp_use_gpg_agent = yes
+set pgp_timeout = 3600
+set crypt_replyencrypt = yes
+set crypt_replysign = yes
+set crypt_replysignencrypted= yes
+set pgp_verify_sig = yes
+set pgp_auto_decode=yes
+
+#Aliases
+set alias_file = ~/.mutt/aliases.private
+set sort_alias= alias
+set reverse_alias=yes
+source $alias_file
+
+#Unknown Certficates
+set certificate_file=~/.mutt/mutt-certs
+
+## Accounts
+
+#Account 1 - personal gmail
+source ~/.mutt/gmail.private
+
+#Account 2 - work account
+source ~/.mutt/work.private
+
+#Account 3 - Uni
+source ~/.mutt/uni.private
+
+#Account 4 - Akti
+source ~/.mutt/akti.private
+
+#Default Account
+source ~/.mutt/home.private

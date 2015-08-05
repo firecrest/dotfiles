@@ -1,0 +1,4 @@
+# Ignore all private files
+*.private
+# Ignore mutt signature files
+*.sig

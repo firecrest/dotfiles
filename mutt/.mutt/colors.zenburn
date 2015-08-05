@@ -1,0 +1,82 @@
+# -*- mode: muttrc; -*-
+# -*- muttrc -*-
+#
+# vim:ft=muttrc
+
+# Source: http://trovao.droplinegnome.org/stuff/dotmuttrc
+# Screenshot: http://trovao.droplinegnome.org/stuff/mutt-zenburnt.png
+#
+# This is a zenburn-based muttrc color scheme that is not (even by far)
+# complete. There's no copyright involved. Do whatever you want with it.
+# Just be aware that I won't be held responsible if the current color-scheme
+# explodes your mutt.
+#
+# Requires a 256 color terminal. E.G. xterm-256-color
+
+# general
+# normal background colour was color237 before setting it to default
+color normal     color188 default
+#was color 236 before default
+color error      color115 default
+#was color238
+color markers    color142 default
+#was color237
+color tilde      color108 default
+color status     color144 color234
+
+# index stuff
+# indicator was color236
+color indicator  color223 default
+# tree was color237
+color tree       color109 default
+#All below were color237
+color index      color188 default ~A
+color index      color108 default ~N
+color index      color188 default ~O
+color index      color223 default ~F
+color index      color174 default ~D
+color index      red      default "TODTASKS"
+
+# header stuff
+color hdrdefault color223 default
+color header     color108 default "^Subject"
+color header     color108 default "^From"
+
+# gpg stuff
+color body       color188 default "^gpg: Good signature.*"
+color body       color115 color236 "^gpg: BAD signature.*"
+color body       color174 default "^gpg: Can't check signature.*"
+color body       color174 default "^-----BEGIN PGP SIGNED MESSAGE-----"
+color body       color174 default "^-----BEGIN PGP SIGNATURE-----"
+color body       color174 default "^-----END PGP SIGNED MESSAGE-----"
+color body       color174 default "^-----END PGP SIGNATURE-----"
+color body       color174 default "^Version: GnuPG.*"
+color body       color174 default "^Comment: .*"
+
+# url, email and web stuff
+color body       color174 default "(finger|ftp|ftps|http|https|news|telnet)://[^ >]*"
+color body       color174 default "<URL:[^ ]*>"
+color body       color174 default "www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body       color174 default "mailto: *[^ ]+\(\\i?subject=[^ ]+\)?"
+color body       color174 default "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Smilies
+#color body       yellow     default    "^ +.*> "
+color body       yellow     default    "(:|;)(-|^)*(\\)|\\()"
+color body       red        default    "(-|=)(-|=)+"
+
+# misc body stuff
+color attachment color174 default
+color signature  color223 default
+
+# quote levels
+color quoted     color108 default
+color quoted1    color116 default
+color quoted2    color247 default
+color quoted3    color108 default
+color quoted4    color116 default
+color quoted5    color247 default
+color quoted6    color108 default
+color quoted7    color116 default
+color quoted8    color247 default
+color quoted9    color108 default
