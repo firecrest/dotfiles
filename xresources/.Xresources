@@ -189,8 +189,13 @@ URxvt*cursorColor: #aaaaaa
 
 ! URxvt*boldFont: fontlist
 ! URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
-URxvt*font: -xos4-terminus-bold-r-normal--12-120-72-72-c-60-iso8859-5
-! URxvt*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1
+!URxvt*font: -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso8859-1
+URxvt*font: -*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt*boldMode: false
+URxvt.boldFont:
+URxvt.letterSpace: -1
+!URxvt*font: xft:terminus:pixelsize=14:antialias=false
+! URxvt*boldFont: -xos4-terminus-bold-r-normal--12-120-72-72-c-60-iso8859-5
 ! URxvt*.font: xft:terminus:size=10
 ! 
 ! URxvt*italicFont: fontlist
@@ -355,7 +360,7 @@ URxvt*secondaryScroll: 0
 ! Compile frills: Associate action with keysym sym. The intervening resource name keysym. cannot be omitted.
 ! URxvt*keysym.sym: action
 
-URxvt*perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher
 
 ! Comma-separated list(s) of perl extension scripts (default: "default") to use in this terminal instance; option -pe.
 ! URxvt*perl-ext: string
@@ -376,7 +381,7 @@ URxvt*perl-ext-common: default,matcher
 ! URxvt*searchable-scrollback: keysym *DEPRECATED*
 
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and "matcher" perl extensions.
-URxvt*url-launcher: /usr/bin/firefox
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
 ! Compile frills: Sets the WM_TRANSIENT_FOR property to the given window id.

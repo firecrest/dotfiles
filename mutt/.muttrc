@@ -8,6 +8,7 @@ set header_cache = ~/.mutt/hcache
 set message_cachedir = "~/.mutt/msgcache"
 #Check all subscribed IMAP folders  (no need to set 'mailboxes' variable)
 set imap_check_subscribed
+
 #This might be required for spaces in IMAP folder names
 #bind editor <space> noop
 # Allow Mutt to open new imap connection automatically.
@@ -18,6 +19,11 @@ set imap_keepalive = 60
 set mail_check = 120
 #Threaded email view
 set sort=threads
+
+set markers = no                          # We don't need an indicator to see that a line is wrapped
+set move = no                             # Don't move messages after reading them
+set include                               # Include original message in reply
+set auto_tag = yes                        # Because it just makes sense
 
 #Editor (use emacsclient to connect to daemon where possible)
 set editor=emacsclient
@@ -40,7 +46,8 @@ macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
 source '~/.mutt/colors.zenburn'
 
 # Split pane view
-set pager_index_lines = 15
+set pager_index_lines = 12
+set pager_stop
 
 #Customise the Index format
 set date_format="%d-%m-%y %T"
@@ -81,6 +88,9 @@ source ~/.mutt/uni.private
 
 #Account 4 - Akti
 source ~/.mutt/akti.private
+
+#Account 5 - gmail-other
+source ~/.mutt/gmail-other.private
 
 #Default Account
 source ~/.mutt/home.private

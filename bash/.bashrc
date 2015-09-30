@@ -2,7 +2,7 @@
 # ~/.bashrc
 #
 
-# Prompt
+## Prompt
 PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
 # Basic PS1
 #PS1='\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] '
@@ -11,14 +11,51 @@ PS1='\[\e[0;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\
 # Aliases
 #
 
-# ls
-alias ls='ls -alF --color=auto'
-# grep
+## Modifed Commands
+alias ls='ls -alF --color=auto --group-directories-first'
 alias grep='grep --color=auto'
-# nano 
 alias nano='nano -w'
+alias du='du -c -h'                    # Disk Usage, with grand total in human readable form
+alias mkdir='mkdir -p -v'              # Make parent directories, verbose to detail what directories were created
+# We want i(nteractive) prompts for safety
+alias rm='rm -I'			# Prompt if removing more than 3 files or removing recursively
+alias mv='mv -i'	       		# Prompt if overwriting a file
+alias cp='cp -i'			# Prompt if overwriting a file
 
-# Pacman aliases
+## New commands
+alias dutotal='du -cs * | sort -h'     # Disk Usage, grand total, summaries only, piped to sort to display in order of size
+alias myip="curl http://ipecho.net/plain; echo"
+
+# Following remove or copy directories recurvsively
+alias cpdir='cp -r'			# Required arguments <dir> <newdir>
+alias rmdir='rm -r'			# Required argument <dir>
+# Navigation
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias dotfiles='cd ~/dotfiles'
+
+# Back up aliases
+alias pacdbbackup='tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local'
+alias etcbackup='sudo tar -cjf etc-backup.tar.bz2 /etc'
+
+# Emacs running as a daemon (Systemd) so emacs aliases:
+alias emt='emacsclient -t'
+alias em='emacsclient -c -a emacs' # opens the GUI with alternate non-daemon
+alias stopemacs='emacsclient --eval "(kill-emacs)"'
+
+## Privileged access
+alias scat='sudo cat'
+alias svim='sudo vim'
+alias snano='sudo nano'
+alias root='sudo su'
+alias poweroff='sudo systemctl poweroff'
+alias reboot='sudo systemctl reboot'
+alias halt='sudo systemctl halt'
+
+## Pacman aliases
 alias pacupg='sudo pacman -Syu'        # Synchronize with repositories before upgrading packages that are out of date on the local system.
 alias aurupdate='pacaur -Syua'	       # Update AUR packages on system using pacaur
 alias update='pacaur -Syu'             # Update all packages, including AUR, using pacaur
@@ -42,24 +79,6 @@ alias pacman-disowned-files="comm -23 <(sudo find / \( -path '/dev' -o -path '/s
 # Locate .pacnew files
 alias pacnew='find /etc -regextype posix-extended -regex ".+\.pac(new|save|orig)" 2> /dev/null'
 
-# Back up aliases
-alias pacdbbackup='tar -cjf pacman_database.tar.bz2 /var/lib/pacman/local'
-alias etcbackup='sudo tar -cjf etc-backup.tar.bz2 /etc'
-
-# Emacs running as a daemon (Systemd) so emacs aliases:
-alias emt='emacsclient -t'
-alias em='emacsclient -c -a emacs' # opens the GUI with alternate non-daemon
-alias stopemacs='emacsclient --eval "(kill-emacs)"'
-
-# Privileged access
-alias scat='sudo cat'
-alias svim='sudo vim'
-alias snano='sudo nano'
-alias root='sudo su'
-alias poweroff='sudo systemctl poweroff'
-alias reboot='sudo systemctl reboot'
-alias halt='sudo systemctl halt'
-
 # Private aliases
 if [ -f ~/.bash.d/.aliases.private ]; then
     source ~/.bash.d/.aliases.private
@@ -72,6 +91,8 @@ export EDITOR='emacsclient -c'
 # So can simply type 'sudo -e <file>' to edit a file as root
 # using the emacs daemon
 export SUDO_EDITOR='emacsclient -c'
+
+export PATH="${PATH}:/home/mark/Scripts/maintenance"
 
 # Private env variables
 if [ -f ~/.bash.d/.env.private ]; then

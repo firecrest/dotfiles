@@ -88,11 +88,11 @@ end
    layout = { layouts[1], layouts[1], layouts[1], layouts[5], layouts[12],
               layouts[9], layouts[3], layouts[5]
  }}
- for s = 1, screen.count() do
+for s = 1, screen.count() do
      -- Each screen has its own tag table.
      tags[s] = awful.tag(tags.names, s, tags.layout)
- end
- -- }}}
+  end
+--}}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
