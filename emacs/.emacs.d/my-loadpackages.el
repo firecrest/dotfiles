@@ -31,6 +31,9 @@
 (advice-add 'python-shell-send-buffer :before #'python-shell-send-buffer-no-prompt)
 
 ;; org-mode settings - The following lines are always needed.  Choose your own keys.
+(require 'org)
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)

@@ -1,5 +1,14 @@
 ;; ~/.emacs.d/my-customisations.el
 
+;; Disable the splash screen (to enable it again, replace the t with 0)
+(setq inhibit-splash-screen t)
+
+;; Enable transient mark mode
+(transient-mark-mode 1)
+
+;; Enable 'y' or 'n' instead of 'yes' or 'no'
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 ;; Line Numbers
 ;; display line numbers to the right of the window
 (global-linum-mode t)
