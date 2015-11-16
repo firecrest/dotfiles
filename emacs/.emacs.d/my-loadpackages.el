@@ -42,6 +42,8 @@
 ;; Auctex
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
 (setq TeX-PDF-mode t)
 
 ;; Magit
@@ -49,11 +51,12 @@
 (define-key global-map (kbd "C-c m") 'magit-status)
 
 ;; Yasnippet
-(require 'yasnippet)
-(yas-global-mode 1)
-(setq yas-snippet-dirs
-      '("~/.emacs.d/snippets" ; personal snippets
-        "~/.emacs.d/elpa/yasnippet-20150415.244/snippets" ; default yasnippet collection of snippets
-        ))
-(add-hook 'term-mode-hook (lambda()
-                            (setq yas-dont-activate t)))
+;;(require 'yasnippet)
+;(autoload 'yasnippet "yasnippet" "Yassnippet" t)
+;(yas-global-mode 1)
+;(setq yas-snippet-dirs
+;      '("~/.emacs.d/snippets" ; personal snippets
+;        "~/.emacs.d/elpa/yasnippet-20150415.244/snippets" ; default yasnippet collection of ;snippets
+;        ))
+;(add-hook 'term-mode-hook (lambda()
+;                            (setq yas-dont-activate t)))
