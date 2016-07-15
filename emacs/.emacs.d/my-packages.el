@@ -2,6 +2,7 @@
 
 ;; Package archives
 (require 'package)
+
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
@@ -11,39 +12,42 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
-(defvar required-packages
-  '(
-    auto-complete
-    better-defaults
-    cedit
-    flycheck
-    jedi
-    lua-mode
-    magit
-    pkg-info
-    popup
-    powerline
-    python-environment
-    python-mode
-    yasnippet
-    zenburn-theme
-    ) "a list of packages that should be instaled at launch.")
+;; Commented out - 09/05/2016 - to see if it speeds up loading at startup
+;; This checks that all packages are installed and loads them if not
 
-(require 'cl)
+;; (defvar required-packages
+;;   '(
+;;     auto-complete
+;;     better-defaults
+;;     cedit
+;;     flycheck
+;;     jedi
+;;     lua-mode
+;;     magit
+;;     pkg-info
+;;     popup
+;;     powerline
+;;     python-environment
+;;     python-mode
+;; ;;    yasnippet
+;;     zenburn-theme
+;;     ) "a list of packages that should be instaled at launch.")
 
-;; method to check if all packages are installed
-(defun packages-installed-p ()
-  (loop for p in required-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
+;; (require 'cl)
 
-;; if not all packages are installed, check one by one and install the missing ones.
-(unless (packages-installed-p)
-  ;; check for new packages (package versions)
-  (message "%s" "Emacs is now refreshing its package database...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; install the missing packages
-  (dolist (p required-packages)
-    (when (not (package-installed-p p))
-      (package-install p))))
+;; ;; method to check if all packages are installed
+;; (defun packages-installed-p ()
+;;   (loop for p in required-packages
+;;         when (not (package-installed-p p)) do (return nil)
+;;         finally (return t)))
+
+;; ;; if not all packages are installed, check one by one and install the missing ones.
+;; (unless (packages-installed-p)
+;;   ;; check for new packages (package versions)
+;;   (message "%s" "Emacs is now refreshing its package database...")
+;;   (package-refresh-contents)
+;;   (message "%s" " done.")
+;;   ;; install the missing packages
+;;   (dolist (p required-packages)
+;;     (when (not (package-installed-p p))
+;;       (package-install p))))

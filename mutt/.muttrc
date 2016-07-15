@@ -19,6 +19,14 @@ set imap_keepalive = 60
 set mail_check = 120
 #Threaded email view
 set sort=threads
+#set sort_aux = reverse-last-date-received  # like gmail newest is at the top
+set uncollapse_jump                        # don't collapse on an unread message
+
+#set arrow_cursor		   # cursor is '->'
+set attribution="%d, %n wrote:"    # beginning of mail answer
+#set folder_format="%t%N %-30.30f %8s"                         # folder list look
+
+set text_flowed=yes                                            #flowed=yes for email line breaks
 
 set markers = no                          # We don't need an indicator to see that a line is wrapped
 set move = no                             # Don't move messages after reading them
@@ -36,11 +44,14 @@ set send_charset="us-ascii:utf-8"
 # Use elinks for HTML messages but default to text where possible
 set mailcap_path 	= ~/.mutt/mailcap
 auto_view text/html
-alternative_order text/plain text/html
+# the line below was causing all emails to be viewed as plain text so have commented it out
+# if there are problems, uncomment. 
+#alternative_order text/plain text/html
 
 #Key Bindings
 #Switch folders correctly when using multiple accounts
 macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+bind index,pager g group-reply
 
 #Colours
 source '~/.mutt/colors.zenburn'

@@ -1,2 +1,23 @@
-text/html; elinks -dump ; copiousoutput;
+# ~/.mutt/mailcap
+
+# HTML - view in mutt
+text/html; elinks %s; nametemplate=%s.html
+text/html; elinks -dump %s; nametemplate=%s.html; copiousoutput
+
+# PDF
 application/pdf; { set -m \; /bin/mv -T %s %s.mv \; ( zathura %s.mv \; /bin/rm %s.mv \; ) & } \; disown -a 
+
+# Images
+image/jpeg; ristretto %s
+image jpg; ristretto %s
+image/png; ristretto %s
+image/gif; ristretto %s
+
+# MS Word/Libreoffice
+application/msword; libreoffice --writer %s
+application/odt; libreoffice --writer %s
+application/vnd.oasis.opendocument.text; libreoffice --writer %s
+
+# MS Excel/Libreoffice
+application/msexcel; libreoffice --calc %s
+application/ods; libreoffice --calc %s

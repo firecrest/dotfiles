@@ -38,6 +38,12 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+;; get nice bullets in org-mode
+(require 'org-bullets)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-bullets-mode t)))
+(setq org-hide-leading-stars t)
 
 ;; Auctex
 (load "auctex.el" nil t t)
@@ -49,6 +55,12 @@
 ;; Magit
 ;; Bind 'C-c m' to 'M-x magit-status'
 (define-key global-map (kbd "C-c m") 'magit-status)
+
+;; which-key
+(which-key-mode)
+
+;; google-this
+(google-this-mode 1)
 
 ;; Yasnippet
 ;;(require 'yasnippet)

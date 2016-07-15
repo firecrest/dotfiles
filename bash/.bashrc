@@ -55,6 +55,10 @@ alias cp='cp -i'			# Prompt if overwriting a file
 ## New commands
 alias dutotal='du -cs * | sort -h'     # Disk Usage, grand total, summaries only, piped to sort to display in order of size
 alias myip="curl http://ipecho.net/plain; echo"
+alias installed="sudo tune2fs -l /dev/sda8 | sudo grep 'Filesystem created:'"
+#Keyboard mappings
+alias mapcaps="setxkbmap -option 'ctrl:swapcaps'"
+alias unmapcaps="setxkbmap -option"
 
 # Following remove or copy directories recurvsively
 alias cpdir='cp -r'			# Required arguments <dir> <newdir>

@@ -84,8 +84,8 @@ end
  -- {{{ Tags
  -- Define a tag table which will hold all screen tags.
  tags = {
-   names  = { "main", "www", "mail", "code", "office", "kodi", 7, 8},
-   layout = { layouts[1], layouts[1], layouts[1], layouts[5], layouts[12],
+   names  = { "term", "www", "emacs", "office", "music", "kodi", "mail", "spare"},
+   layout = { layouts[1], layouts[1], layouts[1], layouts[12], layouts[5],
               layouts[9], layouts[3], layouts[5]
  }}
 for s = 1, screen.count() do
@@ -108,12 +108,12 @@ myapps = {
    { "email", terminal .. " -e mutt" },
    { "file manager", "thunar" },
    { "sound", "xfce4-mixer" },
-   { "emacs", terminal .. "emacsclient -c" },
+   { "emacs", "emacs" },
    { "libreOffice Writer", "libreoffice --writer" },
    { "libreoffice Calc", "libreoffice --calc" },
    { "Kodi", "kodi" },
    { "keepass", "keepass" },
-   { "geany", "geany" }
+   { "deadbeef", "deadbeef" }
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -477,23 +477,23 @@ awful.rules.rules = {
     -- Set Firefox to always map on tags number 2 of screen 1.
       { rule = { class = "Firefox" },
        properties = { tag = tags[1][2] } },
-    -- Set Thunderbird to always map on tags number 3 of screen 1.
+    -- Set Thunderbird to always map on tags number 7 of screen 1.
       { rule = { class = "Thunderbird" },
-       properties = { tag = tags[1][3] } },
-    -- Set Geany to always map on tags number 4 of screen 1.
-      { rule = { class = "Geany" },
-       properties = { tag = tags[1][4] } },
+       properties = { tag = tags[1][7] } },
+    -- Set Deadbeef to always map on tags number 5 of screen 1.
+      { rule = { class = "Deadbeef" },
+       properties = { tag = tags[1][5] } },
    -- Set Office apps to always map on tags number 5 of screen 1.
       { rule = { class = "libreoffice --writer" },
-       properties = { tag = tags[1][5] } },
+       properties = { tag = tags[1][4] } },
       { rule = { class = "libreoffice --calc" },
-       properties = { tag = tags[1][5] } },   
+       properties = { tag = tags[1][4] } },   
     -- Set Kodi to always map on tag 6 of screen 1
       { rule = { class = "Kodi"},
 	properties = { tag = tags[1][6] } },
       -- emacs fullscreen
       { rule = { class = "Emacs" },
-        properties = { size_hints_honor = false } },
+        properties = { size_hints_honor = false, tag = tags[1][3] } },
       { rule = { class = "emacsclient" },
         properties = { size_hints_honor = false } },
       -- ensure fullscreen youtube works correctly when tiling

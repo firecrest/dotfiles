@@ -10,7 +10,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Line Numbers
-;; display line numbers to the right of the window
+;; display line numbers to the left of the window
 (global-linum-mode t)
 ;; show the current line and column numbers in the stats bar as well
 (line-number-mode t)
