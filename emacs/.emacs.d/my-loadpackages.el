@@ -59,6 +59,11 @@
 ;; which-key
 (which-key-mode)
 
+;; arduino-mode
+(require 'cl)
+(autoload 'arduino-mode "arduino-mode" "Arduino editing mode." t)
+(add-to-list 'auto-mode-alist '("\.ino$" . arduino-mode))
+
 ;; google-this
 (google-this-mode 1)
 

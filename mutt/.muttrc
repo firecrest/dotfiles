@@ -20,6 +20,7 @@ set mail_check = 120
 #Threaded email view
 set sort=threads
 #set sort_aux = reverse-last-date-received  # like gmail newest is at the top
+set sort_aux = last-date-received  # newest email is grouped at the bottom
 set uncollapse_jump                        # don't collapse on an unread message
 
 #set arrow_cursor		   # cursor is '->'
